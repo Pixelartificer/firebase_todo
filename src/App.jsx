@@ -47,7 +47,7 @@ let todos = [];
 
 
   return (
-    <div>
+    <div  className="w-full h-screen flex flex-col items-center justify-center gap-5">
       <input value={inputValue} onChange={(e)=>setInputValue(e.target.value)} type="text" placeholder="What in your mind...." />
       <button onClick={handleTodo}>Add ToDo</button>
 
