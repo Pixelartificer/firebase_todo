@@ -145,12 +145,12 @@ const App = () => {
   return (
     <div className="min-h-screen w-full bg-slate-950 text-slate-100 py-12 px-4 flex flex-col items-center font-sans selection:bg-indigo-500 selection:text-white">
       {/* Modern Header */}
-      <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight bg-gradient-to-r from-indigo-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent mb-8 text-center">
+      <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight bg-linear-to-r from-indigo-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent mb-8 text-center">
        To Do App
       </h1>
 
       {/* Input Container Box */}
-      <div className="w-full max-w-[520px] bg-slate-900/80 backdrop-blur-xl border border-slate-800 shadow-2xl shadow-indigo-950/40 rounded-2xl p-6 flex flex-col gap-4">
+      <div className="w-full max-w-130 bg-slate-900/80 backdrop-blur-xl border border-slate-800 shadow-2xl shadow-indigo-950/40 rounded-2xl p-6 flex flex-col gap-4">
         {/* Name Input */}
         <input
           className="w-full bg-slate-950/60 border border-slate-800 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 focus:outline-none rounded-xl px-4 py-3 text-slate-200 placeholder-slate-500 font-medium transition text-sm"
@@ -219,7 +219,7 @@ const App = () => {
 
           {/* Extended Emoji Popup Box with scrollable grid */}
           {showEmoji && (
-            <div className="absolute bottom-14 left-0 bg-slate-900 border border-slate-800 shadow-2xl rounded-xl p-3 grid grid-cols-6 gap-2 z-20 max-w-[280px] max-h-48 overflow-y-auto">
+            <div className="absolute bottom-14 left-0 bg-slate-900 border border-slate-800 shadow-2xl rounded-xl p-3 grid grid-cols-6 gap-2 z-20 max-w-70 max-h-48 overflow-y-auto">
               {emojis.map((em, index) => (
                 <button
                   key={index}
@@ -235,7 +235,7 @@ const App = () => {
 
           {/* Submit Button */}
           <button
-            className="bg-gradient-to-r from-indigo-500 to-cyan-500 hover:from-indigo-600 hover:to-cyan-600 text-white font-semibold text-xs uppercase tracking-wider px-6 py-3 rounded-xl shadow-lg shadow-indigo-500/20 cursor-pointer transition flex items-center justify-center min-w-[110px]"
+            className="bg-linear-to-r from-indigo-500 to-cyan-500 hover:from-indigo-600 hover:to-cyan-600 text-white font-semibold text-xs uppercase tracking-wider px-6 py-3 rounded-xl shadow-lg shadow-indigo-500/20 cursor-pointer transition flex items-center justify-center min-w-28"
             onClick={handleTodo}
           >
             {loading ? (
@@ -250,7 +250,7 @@ const App = () => {
       </div>
 
       {/* Feed List */}
-      <ul className="w-full max-w-[520px] flex flex-col gap-4 mt-6">
+      <ul className="w-full max-w-130 flex flex-col gap-4 mt-6">
         {todos.map((item) => (
           <li
             key={item.id}
@@ -259,12 +259,13 @@ const App = () => {
             {/* Post Header */}
             <div className="flex justify-between items-start">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-500 to-cyan-500 text-white font-bold flex items-center justify-center text-sm shadow-inner">
+                <div className="w-10 h-10 rounded-xl bg-linear-to-tr from-indigo-500 to-cyan-500 text-white font-bold flex items-center justify-center text-sm shadow-inner">
                   {item.name ? item.name.charAt(0).toUpperCase() : "U"}
                 </div>
                 <div>
                   <h3 className="font-semibold text-slate-200 text-sm leading-tight">
                     {item.name || "Anonymous"}
+
                   </h3>
                   <p className="text-[11px] text-slate-500 mt-0.5">
                     {item.date} at {item.time}
@@ -288,7 +289,7 @@ const App = () => {
             </div>
 
             {/* Post Message */}
-            <p className="text-slate-300 text-sm leading-relaxed px-0.5 font-normal break-words">
+            <p className="text-slate-300 text-sm leading-relaxed px-0.5 font-normal wrap-break-word">
               {item.input}
             </p>
 
